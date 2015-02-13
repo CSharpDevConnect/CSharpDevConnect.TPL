@@ -1,10 +1,9 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
 namespace CSharpDevConnect.TPL.Exercises
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-
     internal sealed class UserLoader : ILoader<User>
     {
         private readonly SQLiteDataStore _dataStore;
@@ -16,8 +15,7 @@ namespace CSharpDevConnect.TPL.Exercises
 
         public ParallelLoopResult Load(IEnumerable<User> enrollments)
         {
-            // Load the JSON file here
-            // Use _dataStore.AddUser() to store users in the database.
+            // Use _dataStore.UserRepository.SaveUser() to store users in the database.
 
             throw new NotImplementedException("You must implement UserLoader.Load() as part of this exercise.");
         }

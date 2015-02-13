@@ -25,6 +25,7 @@ namespace CSharpDevConnect.TPL.Exercises.ExampleSolution
         {
             _dataStore.UserRepository.SaveUser(enrollment.User);
 
+            // Only save unique courses
             if (_savedCourses.TryAdd(enrollment.Course.CourseId, enrollment.Course))
             {
                 _dataStore.CourseRepository.SaveCourse(enrollment.Course);

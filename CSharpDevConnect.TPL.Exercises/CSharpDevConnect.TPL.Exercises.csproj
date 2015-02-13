@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <EmbeddedResource Include="data\users.json" />
     <EmbeddedResource Include="data\enrollments.json" />
     <None Include="packages.config" />
   </ItemGroup>

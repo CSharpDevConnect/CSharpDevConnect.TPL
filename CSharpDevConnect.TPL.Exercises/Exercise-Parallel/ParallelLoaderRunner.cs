@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-using CSharpDevConnect.TPL.Exercises.ExampleSolution;
 
 using Newtonsoft.Json;
 
@@ -36,10 +35,9 @@ namespace CSharpDevConnect.TPL.Exercises
             using (SQLiteDataStore sqLiteDataStore = new SQLiteDataStore(_filePath))
             {
                 sqLiteDataStore.InitializeDb();
-                string enrollmentsJson = ReadJsonFileIntoString("enrollments.json");
-                IEnumerable<Enrollment> enrollments = JsonConvert.DeserializeObject<IEnumerable<Enrollment>>(enrollmentsJson);
+                IEnumerable<Enrollment> enrollments = GetEnrollmentsFromJson();
 
-                ILoader<Enrollment> loader = new AnswerUserAndCourseLoader(sqLiteDataStore);
+                ILoader<Enrollment> loader = new UserAndCourseLoader(sqLiteDataStore);
                 ParallelLoopResult parallelLoopResult = loader.Load(enrollments);
 
                 Assert.True(parallelLoopResult.IsCompleted);
@@ -60,7 +58,7 @@ namespace CSharpDevConnect.TPL.Exercises
                 sqLiteDataStore.InitializeDb();
                 IEnumerable<User> users = GetOrderedUsersFromJson();
 
-                ILoader<User> loader = new AnswerUserLoader(sqLiteDataStore);
+                ILoader<User> loader = new UserLoader(sqLiteDataStore);
                 ParallelLoopResult parallelLoopResult = loader.Load(users);
 
                 Assert.True(parallelLoopResult.IsCompleted);
@@ -69,21 +67,11 @@ namespace CSharpDevConnect.TPL.Exercises
             }
         }
 
-        [Fact]
-        public void LoadUsersSerial()
+        private static IEnumerable<Enrollment> GetEnrollmentsFromJson()
         {
-            using (SQLiteDataStore sqLiteDataStore = new SQLiteDataStore(_filePath))
-            {
-                sqLiteDataStore.InitializeDb();
-                IEnumerable<User> users = GetOrderedUsersFromJson();
-
-                foreach (User user in users)
-                {
-                    sqLiteDataStore.UserRepository.SaveUser(user);
-                }
-
-                AssertUserLoad(users, sqLiteDataStore);
-            }
+            string enrollmentsJson = ReadJsonFileIntoString("enrollments.json");
+            IEnumerable<Enrollment> enrollments = JsonConvert.DeserializeObject<IEnumerable<Enrollment>>(enrollmentsJson);
+            return enrollments;
         }
 
         private static IEnumerable<User> GetOrderedUsersFromJson()
@@ -164,37 +152,5 @@ namespace CSharpDevConnect.TPL.Exercises
 
             return result;
         }
-
-        [Fact(Skip = "Used for validating the JSON")]
-        public void FindDuplicateUsers()
-        {
-            string enrollmentsJson = ReadJsonFileIntoString("enrollments.json");
-            IEnumerable<Enrollment> enrollments = JsonConvert.DeserializeObject<IEnumerable<Enrollment>>(enrollmentsJson);
-
-            HashSet<string> userNames = new HashSet<string>();
-
-            bool dupsFound = false;
-            foreach (Enrollment enrollment in enrollments)
-            {
-                if (userNames.Contains(enrollment.User.UserName))
-                {
-                    dupsFound = true;
-                    //  Console.WriteLine(enrollment.User.UserName);
-                    enrollment.User.UserName = enrollment.User.UserName.Replace('a', 'i');
-                    userNames.Add(enrollment.User.UserName);
-                }
-                else
-                {
-                    userNames.Add(enrollment.User.UserName);
-                }
-            }
-
-            if (dupsFound)
-            {
-                string usersString = JsonConvert.SerializeObject(enrollments);
-                Console.WriteLine(usersString);
-            }
-        }
-
     }
 }
