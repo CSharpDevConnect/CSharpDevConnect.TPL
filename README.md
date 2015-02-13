@@ -10,11 +10,12 @@ Exercises
 
   The entry point for you work is via xUnit test methods in *CSharpDevConnect.TPL.Exercises.ParallelLoaderRunner.cs*:
 
-     * LoadUsersParallel() - Running this test will call *UserLoader.Load()* to load user information from the JSON into the
-                             database.  The assignment is to make this test pass by providing the implementation for 
-                             *UserLoader.Load()*.
+     * LoadUsersParallel() - Running this test will call *UserLoader.Load()* to load user information from the 
+                             JSON into the database.  The assignment is to make this test pass by providing the 
+                             implementation for *UserLoader.Load()*.
 
-     * LoadCoursesAndUsersFromEnrollmentsParallel() - Running this test will call *UserAndCourseLoader.Load()* to load user 
-                             and course information from the JSON into the database.  The assignment is to make this test 
-                             pass by providing the implementation for *UserAndCourseLoader.Load()*.
+     * LoadCoursesAndUsersFromEnrollmentsParallel() - Running this test will call *UserAndCourseLoader.Load()*
+                            to load user and course information from the JSON into the database.  The assignment 
+                            is to make this test pass by providing the implementation for 
+                            *UserAndCourseLoader.Load()*.
 
