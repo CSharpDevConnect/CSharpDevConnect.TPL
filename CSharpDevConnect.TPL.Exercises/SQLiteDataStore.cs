@@ -6,13 +6,15 @@ using System.Threading;
 
 namespace CSharpDevConnect.TPL.Exercises
 {
-    public class SQLiteDataStore
+    public class SQLiteDataStore : IDisposable
     {
         private readonly string _filePath;
 
         private readonly SQLiteConnection _sqlConnection;
 
         private readonly UserRepository _userRepository;
+
+        private CourseRepository _courseRepository;
 
         public SQLiteDataStore(string filePath)
         {
@@ -22,6 +24,8 @@ namespace CSharpDevConnect.TPL.Exercises
             _sqlConnection = new SQLiteConnection(connectionString);
 
             _userRepository = new UserRepository(_sqlConnection);
+
+            _courseRepository = new CourseRepository(_sqlConnection);
         }
 
         public UserRepository UserRepository
@@ -29,6 +33,14 @@ namespace CSharpDevConnect.TPL.Exercises
             get
             {
                 return _userRepository;
+            }
+        }
+
+        public CourseRepository CourseRepository
+        {
+            get
+            {
+                return _courseRepository;
             }
         }
 
@@ -57,7 +69,7 @@ namespace CSharpDevConnect.TPL.Exercises
             sb.PageSize = 16384;
             sb.CacheSize = 65536;
             sb.JournalMode = SQLiteJournalModeEnum.Wal;
-            sb.Pooling = true;
+            sb.Pooling = false;
             sb.LegacyFormat = false;
             sb.DefaultTimeout = 500;
             sb.ForeignKeys = true;
@@ -97,5 +109,10 @@ namespace CSharpDevConnect.TPL.Exercises
             return result;
         }
 
+        public void Dispose()
+        {
+            _sqlConnection.Close();
+            _sqlConnection.Dispose();
+        }
     }
 }

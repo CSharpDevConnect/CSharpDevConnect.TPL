@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace CSharpDevConnect.TPL.Exercises.ExampleSolution
 {
-    internal sealed class AnswerUserLoader : IUserLoader
+    internal sealed class AnswerUserLoader : ILoader<User>
     {
         private readonly SQLiteDataStore _dataStore;
 
@@ -12,9 +12,9 @@ namespace CSharpDevConnect.TPL.Exercises.ExampleSolution
             _dataStore = dataStore;
         }
 
-        public ParallelLoopResult Load(IEnumerable<User> users)
+        public ParallelLoopResult Load(IEnumerable<User> enrollments)
         {
-            ParallelLoopResult parallelLoopResult = Parallel.ForEach(users, _dataStore.UserRepository.SaveUser);
+            ParallelLoopResult parallelLoopResult = Parallel.ForEach(enrollments, _dataStore.UserRepository.SaveUser);
             return parallelLoopResult;
         }
     }

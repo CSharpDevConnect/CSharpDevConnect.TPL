@@ -48,11 +48,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CourseRepository.cs" />
+    <Compile Include="Enrollment.cs" />
+    <Compile Include="Course.cs" />
     <Compile Include="Exercise-Parallel\ExampleSolution\AnswerUserLoader.cs" />
-    <Compile Include="Exercise-Parallel\IUserLoader.cs" />
+    <Compile Include="Exercise-Parallel\ExampleSolution\AnswerUserAndCourseLoader.cs" />
+    <Compile Include="Exercise-Parallel\ILoader.cs" />
+    <Compile Include="Exercise-Parallel\UserAndCourseLoader.cs" />
+    <Compile Include="RepositoryBase.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Exercise-Parallel\UserLoader.cs" />
-    <Compile Include="Exercise-Parallel\UserLoaderRunner.cs" />
+    <Compile Include="Exercise-Parallel\ParallelLoaderRunner.cs" />
     <Compile Include="SQLiteDataStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRepository.cs" />
@@ -60,6 +66,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <EmbeddedResource Include="data\users.json" />
+    <EmbeddedResource Include="data\enrollments.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
