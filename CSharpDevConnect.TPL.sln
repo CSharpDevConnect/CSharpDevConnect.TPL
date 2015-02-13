@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpDevConnect.TPL.Examples", "CSharpDevConnect.TPL\CSharpDevConnect.TPL.Examples.csproj", "{5976BD6C-FC34-4697-86E5-70A36D8C3D79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{04550C07-01F3-4CF2-8767-9C226DAB7C8E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpDevConnect.TPL.Exercises", "CSharpDevConnect.TPL.Exercises\CSharpDevConnect.TPL.Exercises.csproj", "{6140666C-ED8E-4870-960F-C9F337F6840A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5976BD6C-FC34-4697-86E5-70A36D8C3D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5976BD6C-FC34-4697-86E5-70A36D8C3D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5976BD6C-FC34-4697-86E5-70A36D8C3D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5976BD6C-FC34-4697-86E5-70A36D8C3D79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6140666C-ED8E-4870-960F-C9F337F6840A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6140666C-ED8E-4870-960F-C9F337F6840A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6140666C-ED8E-4870-960F-C9F337F6840A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6140666C-ED8E-4870-960F-C9F337F6840A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
