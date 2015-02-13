@@ -5,13 +5,11 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-
 using Newtonsoft.Json;
 
 using Xunit;
 
-
-namespace CSharpDevConnect.TPL.Exercises
+namespace CSharpDevConnect.TPL.Exercises.UseParallel
 {
     public class ParallelLoaderRunner
     {

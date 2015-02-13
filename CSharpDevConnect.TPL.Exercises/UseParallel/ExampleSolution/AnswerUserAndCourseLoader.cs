@@ -1,9 +1,10 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CSharpDevConnect.TPL.Exercises.ExampleSolution
+namespace CSharpDevConnect.TPL.Exercises.UseParallel.ExampleSolution
 {
     internal sealed class AnswerUserAndCourseLoader : ILoader<Enrollment>
     {

@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace CSharpDevConnect.TPL.Exercises.ExampleSolution
+﻿
+namespace CSharpDevConnect.TPL.Exercises.UseParallel.ExampleSolution
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
     internal sealed class AnswerUserLoader : ILoader<User>
     {
         private readonly SQLiteDataStore _dataStore;

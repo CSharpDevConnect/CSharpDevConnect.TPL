@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CSharpDevConnect.TPL.Exercises
+namespace CSharpDevConnect.TPL.Exercises.UseParallel
 {
     internal sealed class UserAndCourseLoader : ILoader<Enrollment>
     {
@@ -16,7 +16,7 @@ namespace CSharpDevConnect.TPL.Exercises
         public ParallelLoopResult Load(IEnumerable<Enrollment> enrollments)
         {
             // Use _dataStore.UserRepository.SaveUser() to store users in the database.
-            // Use _dataStore.CourseRepository.SaveCourse() to store users in the database.
+            // Use _dataStore.CourseRepository.SaveCourse() to store courses in the database.
 
             throw new NotImplementedException("You must implement UserAndCourseLoader.Load() as part of this exercise.");
         }

@@ -8,7 +8,8 @@ Exercises
 
 **Exercise One:  Loading JSON records into a database using Parallel.ForEach()**
 
-  The entry point for you work is via xUnit test methods in *CSharpDevConnect.TPL.Exercises.ParallelLoaderRunner.cs*:
+  The entry point for you work is via xUnit test methods in 
+  *CSharpDevConnect.TPL.Exercises.UseParallel.ParallelLoaderRunner.cs*:
 
      * LoadUsersParallel() - Running this test will call *UserLoader.Load()* to load user information from the 
                              JSON into the database.  The assignment is to make this test pass by providing the 
@@ -19,3 +20,12 @@ Exercises
                             is to make this test pass by providing the implementation for 
                             *UserAndCourseLoader.Load()*.
 
+
+**Exercise Two:  Loading JSON records into a database using Task**
+
+  The entry point for you work is via xUnit test methods in 
+  *CSharpDevConnect.TPL.Exercises.UseTask.TaskLoaderRunner.cs*:
+
+     * LoadEnrollments() - Running this test will call *EnrollmentLoader.Load()* to load user information from the 
+                             JSON into the database.  The assignment is to make this test pass by providing the 
+                             implementation for *UserLoader.Load()*.
