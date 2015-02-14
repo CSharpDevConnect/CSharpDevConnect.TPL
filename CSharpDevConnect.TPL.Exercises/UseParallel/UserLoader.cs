@@ -16,7 +16,7 @@ namespace CSharpDevConnect.TPL.Exercises.UseParallel
             _dataStore = dataStore;
         }
 
-        public ParallelLoopResult Load(IEnumerable<User> enrollments)
+        public ParallelLoopResult Load(IEnumerable<User> users)
         {
             // Use _dataStore.UserRepository.SaveUser() to store users in the database.
 
