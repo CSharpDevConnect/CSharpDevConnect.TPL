@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 
-namespace CSharpDevConnect.TPL.Exercises
+namespace CSharpDevConnect.TPL.Exercises.Repository
 {
     public class SQLiteDataStore : IDisposable
     {
@@ -14,7 +14,9 @@ namespace CSharpDevConnect.TPL.Exercises
 
         private readonly UserRepository _userRepository;
 
-        private CourseRepository _courseRepository;
+        private readonly CourseRepository _courseRepository;
+
+        private readonly EnrollmentRepository _enrollmentRepository;
 
         public SQLiteDataStore(string filePath)
         {
@@ -26,6 +28,8 @@ namespace CSharpDevConnect.TPL.Exercises
             _userRepository = new UserRepository(_sqlConnection);
 
             _courseRepository = new CourseRepository(_sqlConnection);
+
+            _enrollmentRepository = new EnrollmentRepository(_sqlConnection, _userRepository, _courseRepository);
         }
 
         public UserRepository UserRepository
@@ -41,6 +45,14 @@ namespace CSharpDevConnect.TPL.Exercises
             get
             {
                 return _courseRepository;
+            }
+        }
+
+        public EnrollmentRepository EnrollmentRepository
+        {
+            get
+            {
+                return _enrollmentRepository;
             }
         }
 

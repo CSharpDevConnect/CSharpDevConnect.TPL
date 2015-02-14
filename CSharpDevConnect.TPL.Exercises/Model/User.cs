@@ -1,6 +1,6 @@
 using System;
 
-namespace CSharpDevConnect.TPL.Exercises
+namespace CSharpDevConnect.TPL.Exercises.Model
 {
     public class User
     {

@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using CSharpDevConnect.TPL.Exercises.Model;
+using CSharpDevConnect.TPL.Exercises.Repository;
+
 namespace CSharpDevConnect.TPL.Exercises.UseTask
 {
     internal class EnrollmentLoader : ITaskLoader<Enrollment>

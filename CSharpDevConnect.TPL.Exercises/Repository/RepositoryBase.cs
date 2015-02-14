@@ -1,8 +1,7 @@
 using System.Data.SQLite;
 
-namespace CSharpDevConnect.TPL.Exercises
+namespace CSharpDevConnect.TPL.Exercises.Repository
 {
-
     public abstract class RepositoryBase
     {
         private readonly SQLiteConnection _sqlConnection;
