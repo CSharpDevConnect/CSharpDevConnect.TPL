@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 using Xunit;
 
-namespace DevConnect.TPL
+namespace CSharpDevConnect.TPL.Examples
 {
-    public class ParallelLoopStateTests
+    public class ParallelLoopStateExamples
     {
         [Fact]
         public void StopOnByeMessage()
@@ -24,7 +24,7 @@ namespace DevConnect.TPL
                 Console.WriteLine("{0}\t--> Stopping on message: {1}", Thread.CurrentThread.ManagedThreadId, message);
                 loopState.Stop();
                 return;
-            } 
+            }
 
             if (!loopState.IsStopped)
             {
