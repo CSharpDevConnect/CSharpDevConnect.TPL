@@ -49,6 +49,14 @@ namespace CSharpDevConnect.TPL.Examples
             taskB.Wait();
 
             ConsoleLogger.Log("Finished.");
+
+            CancellationToken token = new CancellationToken();
+            Task task = new Task(() => MyMethod(token), token);
+        }
+
+        private void MyMethod(CancellationToken token)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
