@@ -72,6 +72,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <EmbeddedResource Include="data\enrollments.json" />
+    <None Include="data\readMe.md" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
